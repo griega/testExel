@@ -67,7 +67,7 @@ def save_to_excel(exchange_rates):
     row_idx = 2
     for exchange_rate in exchange_rates:
         ws[f'A{row_idx}'], ws[f'B{row_idx}'], ws[f'C{row_idx}'], ws[f'D{row_idx}'], ws[f'E{row_idx}'], ws[f'F{row_idx}'] = exchange_rate
-        ws[f'G{row_idx}'] = exchange_rate[1] / exchange_rate[4]  # Курс USD/RUB / Курс JPY/RUB
+        ws[f'G{row_idx}'] = exchange_rate[1] / exchange_rate[4]  
         row_idx += 1
 
     financial_format = NamedStyle(name='financial', number_format='#,##0.00')
@@ -124,7 +124,6 @@ def send_email():
     else:
         row_word = "строк"
 
-    # Добавляем информацию о количестве строк в письмо
     body = f"В прикрепленном Excel файле {num_rows} {row_word}."
     msg.attach(MIMEText(body, 'plain'))
 
